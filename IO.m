@@ -76,3 +76,34 @@ lb = [0 0 0 0 0];
 [x , fval] = linprog(f , -A , -b , [] , [] , lb);
 
 %x are the number of staff or workers neccesaries in each shift to achieve the objectives of security inside the business.
+
+%% Window glass with shadow prices
+
+f = [3; 5];
+
+A = [1 0;
+     0 2;
+     3 2];
+
+b = [4; 12; 18];
+ 
+lb = [0 0]; 
+
+[x , fval , exitflag , output , lambda] = linprog(-f , A , b , [] , [] , lb);  % Maximize the value of f therefore f must be inverse function to maximze the gain of objetive function.
+ 
+fval = -fval;
+
+
+%lambda.ineqlin
+
+%ans =
+
+%    0.0000
+%    1.5000
+%    1.0000
+
+% we have got an increase of 1.5 in the objective function per unit of
+% increase in the resource b_2 in the resource b_3 we have got an increase
+% of 1 unit per unit of resources, an increase of 0.5 in the resource b_2
+% we have got an increase of 0.75 in the objetive function...
+
