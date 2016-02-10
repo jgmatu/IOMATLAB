@@ -163,5 +163,3 @@ A = [-3 5;
 b = [10; 35];
 
 lb = zeros(1 , 2);
-
-intlinprog
