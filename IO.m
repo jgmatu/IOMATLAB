@@ -205,14 +205,14 @@ M = 99999;
 
 f = [2000;3000;4;0;0;0]; %miles de euros
 
-A = [ 1.5 3 5 0 0 0; %acero usado por las antenas
-      30 25 40 0 0 0; % horas de mano de obra
-      -1 0 0 M 0 0 
-      1 0 0 -M 0 0 
-      0 -1 0 0 M 0
-      0 1 0 0 -M 0
-      0 0 -1 0 0 M
-      0 0 1 0 0 -M];
+A = [1.5 3  5  0  0  0; %acero usado por las antenas
+     30 25 40  0  0  0; % horas de mano de obra
+     -1  0  0  M  0  0 
+      1  0  0 -M  0  0 
+      0 -1  0  0  M  0
+      0  1  0  0 -M  0
+      0  0 -1  0  0  M
+      0  0  1  0  0 -M];
  
   b = [6000;60000;-1000+M;0;-1000+M;0;-1000+M;0];
 
@@ -247,7 +247,7 @@ A = [ 1.5 3 5 0 0 0; %acero usado por las antenas
  
  [x ,fval , exitflag , output] = intlinprog(-f , intcon , A , b , Aeq , beq , lb ,ub);
  
- %% Example 	blast furnace business Nori & Co. Coste fijo
+ %% Example blast furnace business Nori & Co. Costes fijos.
 
 M = 99999;
 
@@ -267,22 +267,6 @@ A = [12 9 25 20 17 13 0 0;
  
  intcon = [7 8];
 [x , fval]  = intlinprog(f ,intcon, -A , -b , [] , [] , lb , ub);
-
-
-%% Problema de programacion lineal entera.
-
-f = [1 ; 2];
-
-A = [-3 5;
-      7 5];
-  
-b = [10; 35];
-
-lb = zeros(1 , 2);
-
-intlinprog
-
-
 
 %% Example 	blast furnace business Nori & Co. Coste fijo
 
@@ -327,7 +311,7 @@ intcon = [5 6 7 8];
 [x,fval] = intlinprog(-f,intcon,A,b,[],[],lb,ub);
 fval = -fval;
 
-%solucion
+% Solucion
 % el resultado nos da x3 = 4000 e y3=1 ; el producto "C" es el que nos da
 % una mayor ganancia y minimiza el coste inicial de la produccion; por
 % otro lado, vemos que se cumple condicion logica ya que al no tener
@@ -335,7 +319,7 @@ fval = -fval;
 % El valor de ganancia (fval) nos da 228000 euros , que es lo que
 % representa la maxima ganancia en la venta de unidades del producto "C".
 
-%% Resolucion de optimización problema de transporte
+%% Resolucion de optimización problema de transporte.
 
 
 f = [464 ; 513 ; 654 ; 867 ; 352 ; 416 ; 690 ; 791 ; 995 ; 682 ; 388 ; 685];
@@ -372,4 +356,4 @@ M = 99999;
 f = [16; 13; 22; 17; 14; 13; 19; 15; 19; 20; 23; M];
 
  
- b = [30 ; -50 ; 70 ; -70;  ];
+ b = [30 ; -50 ; 70 ; -70];
